@@ -10,12 +10,17 @@
 <body>
     <div id="app">
         <main>
-            <p>Subject: {{Subject}}</p>
+            <figure><!-- bind the 'src' attribute to the 'product.image' in 'data' -->
+                <img v-bind:src="image" width="80px" :alt="altText">
+                <p>Subject: {{Subject}}</p>
+            </figure>
+            
              <p>Location: {{Location}}</p>
               <p>Price: {{Price}}</p>
                <p>Spaces: {{Spaces}}</p>
 
-               <button v-on:click="addToCart">Add To Cart</button>
+               <button v-on:click='addToCart' v-if='canAddToCart'>Add to cart</button>
+                    <button disabled="disabled" v-else>Add to cart</button>
         </main>
     </div>
     <script type="text/javascript">
@@ -25,7 +30,9 @@
                 Subject: "Math",
                 Location: "London",
                 Price: '$100',
-                Spaces: 5
+                Spaces: 5,
+                image:"math.jpg",
+                altText: "Math image"
             },
            methods:{
             addToCart(){
@@ -40,7 +47,7 @@
            },
            computed:{
             canAddToCart() {
-                    return this.spaces > 0
+                    return this.Spaces > 0
                 }
            }
         })

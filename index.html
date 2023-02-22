@@ -27,7 +27,17 @@
                 Price: '$100',
                 Spaces: 5
             },
-           
+           methods:{
+            addToCart(){
+                if(this.Spaces == 0){
+                    this.Spaces = 0
+                }else{
+                    this.Spaces = this.Spaces -1
+                }
+                
+                console.log(this.Spaces)
+            }
+           }
         })
     </script>
 </body>

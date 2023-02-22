@@ -37,6 +37,11 @@
                 
                 console.log(this.Spaces)
             }
+           },
+           computed:{
+            canAddToCart() {
+                    return this.spaces > 0
+                }
            }
         })
     </script>
